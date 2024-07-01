@@ -6,16 +6,35 @@ car_database = {}
 # Function to upload a car database from a CSV file
 def upload_file(file_path):
     global car_database  # Accessing the global car_database variable
-    with open(file_path, 'r') as file:
+    try:
+        # Open the CSV file for reading
+        with open(file_path, 'r') as file:
             # Create a CSV dictionary reader to parse the file
             reader = csv.DictReader(file)
+            # Initialize a counter for the row number
+            row_number = 0
             # Iterate over each row in the CSV file
             for row in reader:
+                row_number += 1
+                try:
+                    # Ensure all required fields are present
+                    if 'Make' not in row or 'Model' not in row or 'Year' not in row or 'Price' not in row:
+                        raise ValueError(f"Missing required fields in row {row_number}")
+                    # Create a key using the Make, Model, and Year from the row
                     key = (row['Make'], row['Model'], row['Year'])
                     # Store the Price in the car database dictionary, converting it to a float
                     car_database[key] = float(row['Price'])
-                
-                
+                except ValueError as ve:
+                    # Print error if required fields are missing or other ValueError occurs
+                    print(f"Error in row {row_number}: {ve}")
+                except Exception as e:
+                    # Print any other unexpected errors
+                    print(f"Unexpected error in row {row_number}: {e}")
         # Print success message after file is uploaded and processed
-    print("File uploaded successfully.")
-
+        print("File uploaded successfully.")
+    except FileNotFoundError:
+        # Handle file not found error
+        print("Error: File not found. Please check the file path.")
+    except Exception as e:
+        # Handle other exceptions and print the error message
+        print(f"An error occurred: {e}")

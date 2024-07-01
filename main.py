@@ -25,7 +25,8 @@ def main():
 
         if choice == '1':
             # Option 1: Upload car database
-            
+            file_path = input("Enter file path: ")
+            upload_file(file_path)
         elif choice == '2':
             # Option 2: Search car database
             
