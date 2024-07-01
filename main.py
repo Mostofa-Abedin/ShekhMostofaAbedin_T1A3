@@ -1,3 +1,12 @@
+# Importing necessary functions from their respective modules in the src package
+from src.upload_file import upload_file
+from src.search_database import search_database
+from src.append_database import append_database
+from src.estimate_price import estimate_price
+from src.find_cars_by_budget import find_cars_by_budget
+
+
+
 # Create a function to run the Car Dealership Management System
 def main():
 	# Use a while loop to continiously show options
@@ -34,3 +43,8 @@ def main():
         else:
             # Handle invalid menu choice
             print("Invalid choice. Please try again.")
+
+# Entry point of the application
+if __name__ == "__main__":
+    # Call the main function to start the application
+    main()
