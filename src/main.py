@@ -1,11 +1,12 @@
 # Importing necessary functions from their respective modules in the src package
 from upload_file import upload_file
-# from ssearch_database import search_database
+from search_database import search_database
 # from append_database import append_database
 # from estimate_price import estimate_price
 # from find_cars_by_budget import find_cars_by_budget
+
 # Delete this later
-from testing_file_to_be_deleted import search_database
+# from testing_file_to_be_deleted import search_database
 
 
 
@@ -30,12 +31,21 @@ def main():
             file_path = input("Enter file path: ")
             upload_file(file_path)
         elif choice == '2':
-             # Option 2: Search car database
             # Option 2: Search car database
+            
             make = input("Enter Make: ")
             model = input("Enter Model: ")
             year = input("Enter Year: ")
-            print(search_database(make, model, year))
+            price = search_database(make, model, year)
+            try:
+                # Attempt to convert price to float
+                price_float = float(price)
+                # If successful, print the formatted price message
+                print(f"The price of {year} {make} {model} is {price_float}")
+            except ValueError:
+                # If conversion fails, price is a string (error message), so print it directly
+                print(price)
+
         # elif choice == '3':
         #     # Option 3: Append to car database
             
