@@ -31,7 +31,11 @@ def main():
             upload_file(file_path)
         elif choice == '2':
              # Option 2: Search car database
-            search_database()
+            # Option 2: Search car database
+            make = input("Enter Make: ")
+            model = input("Enter Model: ")
+            year = input("Enter Year: ")
+            print(search_database(make, model, year))
         # elif choice == '3':
         #     # Option 3: Append to car database
             

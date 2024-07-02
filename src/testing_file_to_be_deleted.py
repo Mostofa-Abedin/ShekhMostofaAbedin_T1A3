@@ -11,9 +11,17 @@
 #         print(keys)
 #     print(values)
     
-def search_database():
-    from upload_file import car_database  # Import the global car_database variable
+# def search_database():
+#     from upload_file import car_database  # Import the global car_database variable
 
-    for keys, values in car_database.items():
-        print(keys)
-        print(values)
+#     for keys, values in car_database.items():
+#         print(keys)
+#         print(values)
+
+def search_database(Make, Model, Year):
+    from upload_file import car_database  # Import the global car_database variable
+    for (car_make, car_model, car_year), price in car_database.items():
+        if car_make == Make and car_model == Model and car_year == Year:
+            return price
+    return "Car not found in the database"
+        
