@@ -6,7 +6,7 @@ from append_database import append_database
 # from find_cars_by_budget import find_cars_by_budget
 
 # Delete this later
-#from testing_file_to_be_deleted import append_database
+from testing_file_to_be_deleted import estimate_price
 
 
 
@@ -63,8 +63,22 @@ def main():
             # Call the append_database function with the provided inputs
             append_database(make, model, year, price)
             
-        # elif choice == '4':
-        #     # Option 4: Estimate used car price
+        elif choice == '4':
+            # Option 4: Estimate used car price
+            make = input("Enter Make: ")
+            model = input("Enter Model: ")
+            year = input("Enter Year: ")
+            mileage = input("Enter Mileage: ")
+            
+            try:
+                year = int(year)  # Convert year to an integer
+                mileage = float(mileage)  # Convert mileage to a float
+            except ValueError:
+                print("Year must be an integer and Mileage must be a number.")
+                continue
+            price = estimate_price(make,model,year,mileage)
+            print(f"The value of a {year} {make} {model} is {price}")
+            
             
         # elif choice == '5':
             

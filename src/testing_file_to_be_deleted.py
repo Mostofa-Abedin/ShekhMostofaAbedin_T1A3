@@ -1,24 +1,31 @@
 # This file is to to used for misc testing purpose. Delete at the end before submitting.
-
+from datetime import datetime
 from upload_file import car_database
 
-def append_database(Make, Model, Year, Price):
+def estimate_price(Make, Model, Year, Mileage):
     try:
-        # Check if inputs are of the expected types
-        if not isinstance(Make, str) or not isinstance(Model, str) or not isinstance(Year, int) or not isinstance(Price, (int, float)):
-            raise TypeError("Make and Model should be strings, Year should be an integer, and Price should be a number.")
+         # Validate the types of the inputs
+        if not isinstance(Make, str):
+            raise TypeError("Make should be a string.")
+        if not isinstance(Model, str):
+            raise TypeError("Model should be a string.")
+        if not isinstance(Year, int):
+            raise TypeError("Year should be an integer.")
+        if not isinstance(Mileage, (int, float)):
+            raise TypeError("Price should be a number.")
+        # Estimate car price
+        # Get the current date and time
+        today = datetime.now()
+        # Extract the year
+        current_year = today.year
+        Depreciation_rate = 0.05
+        Mileage_adjustment_factor = 0.01
+        base_price = car_database.get((Make, Model, Year))
         
-        # Create a new entry for the car
-        new_car = {(Make, Model, Year): Price}
+        price = base_price-(Depreciation_rate*(Year-current_year)*base_price)+(Mileage_adjustment_factor*Mileage)
         
-        # Update the car database with the new entry
-        car_database.update(new_car)
-        
-        # Return the updated car database
-        print(f"{Year} {Make} {Model} was added sucessfully")
-        return car_database
-        
-    
+        return price
+             
     except TypeError as te:
         return f"TypeError: {te}"
     except Exception as e:
