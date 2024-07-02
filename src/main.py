@@ -1,11 +1,11 @@
 # Importing necessary functions from their respective modules in the src package
-from src.upload_file import upload_file
-# from src.search_database import search_database
-# from src.append_database import append_database
-# from src.estimate_price import estimate_price
-# from src.find_cars_by_budget import find_cars_by_budget
+from upload_file import upload_file
+# from ssearch_database import search_database
+# from append_database import append_database
+# from estimate_price import estimate_price
+# from find_cars_by_budget import find_cars_by_budget
 # Delete this later
-# from src.testing_file_to_be_deleted import search_database
+from testing_file_to_be_deleted import search_database
 
 
 
@@ -31,7 +31,7 @@ def main():
             upload_file(file_path)
         # elif choice == '2':
         #     # Option 2: Search car database
-            
+            search_database()
         # elif choice == '3':
         #     # Option 3: Append to car database
             
