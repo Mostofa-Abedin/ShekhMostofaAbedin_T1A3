@@ -29,8 +29,8 @@ def main():
             # Option 1: Upload car database
             file_path = input("Enter file path: ")
             upload_file(file_path)
-        # elif choice == '2':
-        #     # Option 2: Search car database
+        elif choice == '2':
+             # Option 2: Search car database
             search_database()
         # elif choice == '3':
         #     # Option 3: Append to car database
@@ -40,8 +40,10 @@ def main():
             
         # elif choice == '5':
             
-        # elif choice == '6':
-        #     # Option 6: Exit the application
+        elif choice == '6':
+            # Option 6: Exit the application
+            print("Exiting the application. Goodbye!")
+            break
            
         # else:
             # Handle invalid menu choice
