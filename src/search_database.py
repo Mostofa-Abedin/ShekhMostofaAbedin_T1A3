@@ -13,6 +13,7 @@ def search_database(Make, Model, Year):
         
         # Iterate through the car_database to find the matching car
         for (car_make, car_model, car_year), price in car_database.items():
+            print(f"Database entry: {(car_make, car_model, car_year)} -> {price}")  # Debug print
             if car_make == Make and car_model == Model and car_year == Year:
                 return price
 
@@ -23,5 +24,6 @@ def search_database(Make, Model, Year):
         return f"TypeError: {te}"
     except Exception as e:
         return f"An unexpected error occurred: {e}"
+
 
 

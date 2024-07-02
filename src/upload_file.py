@@ -38,3 +38,4 @@ def upload_file(file_path):
     except Exception as e:
         # Handle other exceptions and print the error message
         print(f"An error occurred: {e}")
+
