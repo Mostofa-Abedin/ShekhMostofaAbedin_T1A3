@@ -6,7 +6,7 @@ from search_database import search_database
 # from find_cars_by_budget import find_cars_by_budget
 
 # Delete this later
-# from testing_file_to_be_deleted import search_database
+from testing_file_to_be_deleted import append_database
 
 
 
@@ -35,7 +35,7 @@ def main():
             
             make = input("Enter Make: ")
             model = input("Enter Model: ")
-            year = input("Enter Year: ")
+            year = int(input("Enter Year: "))
             price = search_database(make, model, year)
             try:
                 # Attempt to convert price to float
@@ -46,9 +46,13 @@ def main():
                 # If conversion fails, price is a string (error message), so print it directly
                 print(price)
 
-        # elif choice == '3':
-        #     # Option 3: Append to car database
-            
+        elif choice == '3':
+            # Option 3: Append to car database
+            make = input("Enter Make: ")
+            model = input("Enter Model: ")
+            year = input("Enter Year: ")
+            price = input("Enter Price: ")
+            append_database(make, model, year, price)
         # elif choice == '4':
         #     # Option 4: Estimate used car price
             
