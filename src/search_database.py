@@ -3,10 +3,14 @@ from upload_file import car_database
 
 def search_database(Make, Model, Year):
     try:
-        # Check if inputs are of the expected type
-        if not isinstance(Make, str) or not isinstance(Model, str) or not isinstance(Year, int):
-            raise TypeError("Make and Model should be strings and Year should be an integer.")
-
+        # Validate the types of the inputs
+        if not isinstance(Make, str):
+            raise TypeError("Make should be a string.")
+        if not isinstance(Model, str):
+            raise TypeError("Model should be a string.")
+        if not isinstance(Year, int):
+            raise TypeError("Year should be an integer.")
+        
         # Iterate through the car_database to find the matching car
         for (car_make, car_model, car_year), price in car_database.items():
             if car_make == Make and car_model == Model and car_year == Year:
