@@ -1,12 +1,12 @@
 # Importing necessary functions from their respective modules in the src package
 from upload_file import upload_file
 from search_database import search_database
-# from append_database import append_database
+from append_database import append_database
 # from estimate_price import estimate_price
 # from find_cars_by_budget import find_cars_by_budget
 
 # Delete this later
-from testing_file_to_be_deleted import append_database
+#from testing_file_to_be_deleted import append_database
 
 
 
@@ -52,7 +52,17 @@ def main():
             model = input("Enter Model: ")
             year = input("Enter Year: ")
             price = input("Enter Price: ")
+            
+            try:
+                year = int(year)  # Convert year to an integer
+                price = float(price)  # Convert price to a float
+            except ValueError:
+                print("Year must be an integer and Price must be a number.")
+                continue
+
+            # Call the append_database function with the provided inputs
             append_database(make, model, year, price)
+            
         # elif choice == '4':
         #     # Option 4: Estimate used car price
             
