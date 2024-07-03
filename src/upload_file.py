@@ -21,7 +21,7 @@ def upload_file(file_path):
                     if 'Make' not in row or 'Model' not in row or 'Year' not in row or 'Price' not in row:
                         raise ValueError(f"Missing required fields in row {row_number}")
                     # Create a key using the Make, Model, and Year from the row
-                    key = (row['Make'], row['Model'], row['Year'])
+                    key = (row['Make'], row['Model'], int(row['Year']))
                     # Store the Price in the car database dictionary, converting it to a float
                     car_database[key] = float(row['Price'])
                 except ValueError as ve:
