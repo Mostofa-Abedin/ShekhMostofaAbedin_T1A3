@@ -6,7 +6,7 @@ from estimate_price import estimate_price
 # from find_cars_by_budget import find_cars_by_budget
 
 # Delete this later
-# from testing_file_to_be_deleted import estimate_price
+from testing_file_to_be_deleted import find_cars_by_budget
 
 
 
@@ -80,7 +80,14 @@ def main():
             print(f"The value of a {year} {make} {model} is {price}")
             
             
-        # elif choice == '5':
+        elif choice == '5':
+            # Option 5: Find cars within Budget
+            Price = float(input("Enter Maximun Budget: "))
+            Make = input("Enter Make (optional): ")
+            cars=find_cars_by_budget(Make,Price)
+            print(f"Cars availabe are: {cars}")
+            
+        
             
         elif choice == '6':
             # Option 6: Exit the application

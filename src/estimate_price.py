@@ -13,7 +13,7 @@ def estimate_price(make, model, year, mileage):
         if not isinstance(year, int):
             raise TypeError("Year should be an integer.")
         if not isinstance(mileage, (int, float)):
-            raise TypeError("Price should be a number.")
+            raise TypeError("Mileage should be a number.")
         
         # Get the base price of the car from the database using search_database function
         base_price = search_database(make, model, year)
