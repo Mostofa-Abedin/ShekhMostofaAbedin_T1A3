@@ -1,6 +1,8 @@
 # Import the search_database function from the search_database module
 from search_database import search_database
 from datetime import datetime
+import math
+
 
 # Function to estimate the price of a used car
 def estimate_price(make, model, year, mileage):
@@ -18,7 +20,7 @@ def estimate_price(make, model, year, mileage):
         # Get the base price of the car from the database using search_database function
         base_price = search_database(make, model, year)
         # If the car is not found, return the message "Car not found"
-        if base_price == "Car not found in the database2":
+        if base_price == "Car not found in the database":
             return base_price
 
         # Ensure base_price is a float
@@ -41,7 +43,16 @@ def estimate_price(make, model, year, mileage):
 
         # Calculate the estimated price using the formula:
         # price = base_price - (depreciation_rate * years_old * base_price) + (mileage_adjustment_factor * mileage)
-        price = base_price - (depreciation_rate * years_old * base_price) + (mileage_adjustment_factor * mileage)
+        # price = base_price - (depreciation_rate * years_old * base_price) + (mileage_adjustment_factor * mileage)
+        
+        # Calculate the depreciation using math module
+        depreciation = math.prod([depreciation_rate, years_old, base_price])
+
+        # Calculate the mileage adjustment using math module
+        mileage_adjustment = math.prod([mileage_adjustment_factor, mileage])
+
+        # Calculate the final price
+        price = base_price - depreciation + mileage_adjustment
         # Return the calculated price
         return price
     

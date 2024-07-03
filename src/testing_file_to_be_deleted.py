@@ -7,7 +7,7 @@ from upload_file import car_database
 def find_cars_by_budget(price, make=None):
     try:
          # Validate the types of the inputs
-        if not isinstance(make, str):
+        if not isinstance(make, (str, type(None))):
             raise TypeError("Make should be a string.")
         if not isinstance(price, (int, float)):
             raise TypeError("Price should be a number.")

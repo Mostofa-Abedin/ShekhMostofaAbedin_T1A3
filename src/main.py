@@ -77,7 +77,11 @@ def main():
                 print("Year must be an integer and Mileage must be a number.")
                 continue
             price = estimate_price(make,model,year,mileage)
-            print(f"The value of a {year} {make} {model} is {price}")
+            if isinstance(price,(int, float)):
+                print(f"The value of a {year} {make} {model} is {price}")
+            else:
+                print(price)
+
             
             
         elif choice == '5':
