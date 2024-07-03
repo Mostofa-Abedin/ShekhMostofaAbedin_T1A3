@@ -84,8 +84,16 @@ def main():
             # Option 5: Find cars within Budget
             Price = float(input("Enter Maximun Budget: "))
             Make = input("Enter Make (optional): ")
-            cars=find_cars_by_budget(Make,Price)
-            print(f"Cars availabe are: {cars}")
+            if Make == "":
+                Make = None
+            cars=find_cars_by_budget(Price,Make)
+            
+            if isinstance(cars, list):
+                for car in cars:
+                    print(f"Make: {car[0]}, Model: {car[1]}, Year: {car[2]}, Price: {car[3]}")
+            else:
+                # Print any error messages returned by the function
+                print(cars)
             
         
             

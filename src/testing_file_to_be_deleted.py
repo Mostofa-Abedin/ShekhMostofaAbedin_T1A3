@@ -4,7 +4,7 @@ from upload_file import car_database
 
 
 # Function to find cars in Budget
-def find_cars_by_budget(make, price):
+def find_cars_by_budget(price, make=None):
     try:
         #  # Validate the types of the inputs
         # if not isinstance(make, str):
