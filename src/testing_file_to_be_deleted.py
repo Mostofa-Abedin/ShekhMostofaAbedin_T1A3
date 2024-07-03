@@ -6,20 +6,11 @@ from upload_file import car_database
 # Function to find cars in Budget
 def find_cars_by_budget(price, make=None):
     try:
-        #  # Validate the types of the inputs
-        # if not isinstance(make, str):
-        #     raise TypeError("Make should be a string.")
-        # if not isinstance(price, (int, float)):
-        #     raise TypeError("Price should be a number.")
-        
-        # found_car = []
-        
-        # for car_type,car_price in car_database.items():
-        #     if car_price <= price: 
-        #         found_car.append ((car_type,car_price))
-        #         return found_car
-        
-        # return "No Car found"
+         # Validate the types of the inputs
+        if not isinstance(make, str):
+            raise TypeError("Make should be a string.")
+        if not isinstance(price, (int, float)):
+            raise TypeError("Price should be a number.")
         
         # Initialize an empty list to store the results
         car_found = []
