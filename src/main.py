@@ -2,11 +2,11 @@
 from upload_file import upload_file
 from search_database import search_database
 from append_database import append_database
-# from estimate_price import estimate_price
+from estimate_price import estimate_price
 # from find_cars_by_budget import find_cars_by_budget
 
 # Delete this later
-from testing_file_to_be_deleted import estimate_price
+# from testing_file_to_be_deleted import estimate_price
 
 
 
