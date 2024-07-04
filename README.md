@@ -21,6 +21,79 @@ The aim of this project is to g.
 
 # <strong style="color:salmon"> Project Management </strong>
 
+## Implementation plan 
+
+### <strong style="color: #f59c42"> Main Program (main.py) </strong>
+#### Outline:
+#### Logic: 
+### <strong style="color: #f59c42"> CSV data (car_database.csv) </strong>
+#### Outline:
+#### Logic: 
+### <strong style="color: #f59c42"> Feature 1: (upload_file.py) </strong>
+
+#### Outline: 
+
+1.	Import CSV Module to handle CSV files.
+2.	Create a blank dictionary to store vehicle data. Let’s call it car_database
+3.	Create a function called that take the argument of the file path where the csv is located.
+4.	Using csv.DictReader open the csv file according to provided file path.
+5.	Iterate through each row.
+6.	Check if correct car details are present(make,model,year,price)
+7.	If they are present add to dictonary car_database such that the key is a tuple of (make,model,year) and the value is the price.
+8.	Save the information.
+9.	Print a success message saying that the upload has been successful. 
+
+#### Logic:
+
+```mermaid
+graph TD
+  A([Start])
+  B[Import CSV Module]
+  C[Create blank dictionary: car_database]
+  D[Define function with file path argument]
+  E{Open CSV file}
+  F[File opened successfully]
+  G[File not found]
+  H{Iterate through each row}
+  I[Check if details are present]
+  J{Details present?}
+  K[Log error: fields missing]
+  L[Add to car_database]
+  M[Save the information]
+  N[Print success message]
+  O([End])
+
+  A --> B
+  B --> C
+  C --> D
+  D --> E
+  E -->|Success| F
+  E -->|Not Found| G
+  F --> H
+  H --> I
+  I --> J
+  J -->|No| K
+  J -->|Yes| L
+  L --> M
+  M --> N
+  G --> O
+  K --> H
+  N --> O
+
+```
+
+### <strong style="color: #f59c42"> Feature 2: (search_database.py) </strong>
+#### Outline:
+#### Logic:
+### <strong style="color: #f59c42"> Feature 3: (append_database.py) </strong>
+#### Outline:
+#### Logic:
+### <strong style="color: #f59c42"> Feature 4: (estimate_price.py) </strong>
+#### Outline:
+#### Logic:
+### <strong style="color: #f59c42"> Feature 5: (find_cars_by_budget.py) </strong>
+
+
 ## Project Management Software
 
 ### Platform
@@ -75,4 +148,38 @@ Epics:
 | Placeholder 3 (CAP-49)                       | 1            |                                             | Application Coding         | 0.5                      | Low         |
 
 
+```mermaid
+graph TD
+  A([Start])
+  B[Import CSV Module]
+  C[Create blank dictionary: car_database]
+  D[Define function with file path argument]
+  E{Open CSV file}
+  F[File opened successfully]
+  G[File not found]
+  H{Iterate through each row}
+  I[Check if details are present]
+  J{Details present?}
+  K[Log error: fields missing]
+  L[Add to car_database]
+  M[Save the information]
+  N[Print success message]
+  O([End])
+
+  A --> B
+  B --> C
+  C --> D
+  D --> E
+  E -->|Success| F
+  E -->|Not Found| G
+  F --> H
+  H --> I
+  I --> J
+  J -->|No| K
+  J -->|Yes| L
+  L --> M
+  M --> N
+  G --> O
+  K --> H
+  N --> O
 
