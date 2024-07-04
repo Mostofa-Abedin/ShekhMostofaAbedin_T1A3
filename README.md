@@ -27,7 +27,7 @@ The aim of this project is to g.
 
 ### <strong style="color: #f59c42"> Main Program (main.py) </strong>
 
-#### Outline:
+#### Pseudocode Outline:
 
 1. Import and load all features from their respective modules.  
 2. Create a main function that runs on a while loop.
@@ -59,13 +59,13 @@ The aim of this project is to g.
 6. Handle Invalid Choices: Print an error message for invalid choices.
 
 
-#### Logic:
+#### Pseudocode Logic:
 
 ```mermaid
 graph TD
   A(["Start"])
   B(["Import and load all features from modules"])
-  C(["Create main function with while loop"])
+  C(["Main function"])
   D(["Display Main Menu Options"])
   E(["Prompt user to choose an option"])
   F{"Option chosen"}
@@ -162,9 +162,10 @@ graph TD
 
 ### <strong style="color: #f59c42"> CSV data </strong>
 
-#### File: (car_database.csv) 
+####
+ File: (car_database.csv) 
 
-#### Outline:
+#### Pseudocode Outline:
 
 1. Create a simple CSV called car_database.
 2. Add 4 headers to called "Make" "Model" "Year" "Price".
@@ -176,7 +177,7 @@ graph TD
 
 #### File: (upload_file.py)
 
-#### Outline: 
+#### Pseudocode Outline: 
 
 1.	Import CSV Module to handle CSV files.
 2.	Create a blank dictionary to store vehicle data. Let’s call it car_database.
@@ -188,7 +189,7 @@ graph TD
 8.	Save the information.
 9.	Print a success message saying that the upload has been successful. 
 
-#### Logic:
+#### Pseudocode Logic:
 
 ```mermaid
 graph TD
@@ -231,7 +232,7 @@ graph TD
 
 #### File: (search_database.py)
 
-#### Outline:
+#### Pseudocode Outline:
 
 1.	Import the car_database dictionary base created in function 1.
 2.	Create a function called search_database that takes the arguments of (Make,Model,Year). 
@@ -240,7 +241,7 @@ graph TD
 5.	Iterate until exact car is found.
 6.	Return the price of the car.
 
-#### Logic:
+#### Pseudocode Logic:
 
 ```mermaid
 graph TD
@@ -271,7 +272,7 @@ graph TD
 
 #### File: (append_database.py)
 
-#### Outline:
+#### Pseudocode Outline:
 
 1.	Import the car_database dictionary base created in function 1.
 2.	Create a function called append_database that takes the arguments of (Make,Model,Year,Price). 
@@ -279,7 +280,7 @@ graph TD
 4.	Add the car to the database where the key is a tuple of Make,Model,Year and the value is Price.
 5.	Print success message
 
-#### Logic:
+#### Pseudocode Logic:
 
 ```mermaid
 graph TD
@@ -307,7 +308,7 @@ graph TD
 
 #### File: (estimate_price.py)
 
-#### Outline:
+#### Pseudocode Outline:
 
 
 1.	Import the search_database fuction created in feature 2
@@ -324,7 +325,7 @@ graph TD
 10.	Calculate current price of car based on formula price = base_price - (depreciation_rate * years_old * base_price) + (mileage_adjustment_factor * mileage)
 11.	Return calculated price.
 
-#### Logic:
+#### Pseudocode Logic:
 
 ```mermaid
 graph TD
@@ -370,7 +371,7 @@ graph TD
 
 #### File: (find_cars_by_budget.py)
 
-#### Outline:
+#### Pseudocode Outline:
 
 1.	Import the car_database dictionary base created in feature 1.
 2.	Create a function called find_cars_by_budget that takes the arguments of (Price,Make). Or Make = none
@@ -382,7 +383,7 @@ b.	Make matches Make (Optional)
 6.	Car found within those criteria returned to list.
 
 
-#### Logic:
+#### Pseudocode Logic:
 
 ```mermaid
 graph TD
