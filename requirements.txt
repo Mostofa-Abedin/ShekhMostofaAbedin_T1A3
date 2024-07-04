@@ -1,0 +1,3 @@
+
+
+#To view readme properly, I need to install mermaid on vscode. 

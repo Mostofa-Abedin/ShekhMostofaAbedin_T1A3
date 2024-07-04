@@ -21,14 +21,157 @@ The aim of this project is to g.
 
 # <strong style="color:salmon"> Project Management </strong>
 
-## Implementation plan 
+## Code Implementation plan 
+
+<strong>Disclaimer -This section was initially written during the planning stage, before any code for the program was written. It has been actively updated as the project progressed. Therefore, there may be some differences between the initial plan and the final product.. </strong>
 
 ### <strong style="color: #f59c42"> Main Program (main.py) </strong>
+
 #### Outline:
-#### Logic: 
-### <strong style="color: #f59c42"> CSV data (car_database.csv) </strong>
+
+1. Import and load all features from their respective modules.  
+2. Create a main function that runs on a while loop.
+3. Within the while loop, Display Main Menu Options
+4. Prompt the user to choose an option.
+   - Option 1: Upload car database.
+   - Option 2: Search car database.
+   - Option 3: Append to car database.
+   - Option 4: Estimate used car price.
+   - Option 5: Find cars within budget.
+   - Option 6: Exit the application.
+5. Based on choice, do the following.
+   - Option 1: Upload File: Ask for file path 
+     - If correct inputs provided, upload to local database and go back to main menu.
+     - If incorrect inputs provided, display error message and go to main menu.
+   - Option 2: Search Database: Ask for car details and search the database.
+     - If correct inputs provided, return price of vehicle and go back to main menu.
+     - If incorrect inputs provided, return error message and go back to main menu.
+   - Option 3: Append Database: Ask for new car details 
+     - If correct inputs provided, append car to database and go back to main menu.
+     - If incorrect inputs provided, return error message and go back to main menu.
+   - Option 4: Estimate Price: Ask for car details 
+     - If correct inputs provided, return estimated vehicle price and go back to main menu.
+     - If incorrect inputs provided, return error message and go back to main menu.
+   - Option 5: Find Cars by Budget: Ask for budget and make (optional)
+     - If correct inputs provided, find cars within that budget, return list of cars and go back to main menu.
+     - If incorrect inputs provided, display error message and go back to main menu.
+   - Option 6: Exit: Exit the application.
+6. Handle Invalid Choices: Print an error message for invalid choices.
+
+
+#### Logic:
+
+```mermaid
+graph TD
+  A(["Start"])
+  B(["Import and load all features from modules"])
+  C(["Create main function with while loop"])
+  D(["Display Main Menu Options"])
+  E(["Prompt user to choose an option"])
+  F{"Option chosen"}
+  G1["Option 1: Upload File"]
+  G2["Option 2: Search Database"]
+  G3["Option 3: Append Database"]
+  G4["Option 4: Estimate Price"]
+  G5["Option 5: Find Cars by Budget"]
+  G6["Option 6: Exit"]
+  H1["Ask for file path"]
+  H2["Ask for car details"]
+  H3["Ask for new car details"]
+  H4["Ask for car details"]
+  H5["Ask for budget and make (optional)"]
+  I1{"Correct inputs?"}
+  I2{"Correct inputs?"}
+  I3{"Correct inputs?"}
+  I4{"Correct inputs?"}
+  I5{"Correct inputs?"}
+  J1["Upload to local database"]
+  J2["Return price of vehicle"]
+  J3["Append car to database"]
+  J4["Return estimated vehicle price"]
+  J5["Find cars within budget"]
+  J6["Exit the application"]
+  K1["Display error message"]
+  K2["Return error message"]
+  K3["Return error message"]
+  K4["Return error message"]
+  K5["Display error message"]
+  L(["Return to main menu"])
+  M["Handle invalid choices"]
+  N["Print error message for invalid choices"]
+  O(["End"])
+
+  A --> B
+  B --> C
+  C --> D
+  D --> E
+  E --> F
+  F -->|1| G1
+  F -->|2| G2
+  F -->|3| G3
+  F -->|4| G4
+  F -->|5| G5
+  F -->|6| G6
+  F -->|Invalid| M
+
+  G1 --> H1
+  H1 --> I1
+  I1 -->|Yes| J1
+  I1 -->|No| K1
+  J1 --> L
+  K1 --> L
+
+  G2 --> H2
+  H2 --> I2
+  I2 -->|Yes| J2
+  I2 -->|No| K2
+  J2 --> L
+  K2 --> L
+
+  G3 --> H3
+  H3 --> I3
+  I3 -->|Yes| J3
+  I3 -->|No| K3
+  J3 --> L
+  K3 --> L
+
+  G4 --> H4
+  H4 --> I4
+  I4 -->|Yes| J4
+  I4 -->|No| K4
+  J4 --> L
+  K4 --> L
+
+  G5 --> H5
+  H5 --> I5
+  I5 -->|Yes| J5
+  I5 -->|No| K5
+  J5 --> L
+  K5 --> L
+
+  G6 --> J6
+  J6 --> O
+
+  L -.-> D
+  M --> N
+  N --> L
+
+```
+
+
+
+### <strong style="color: #f59c42"> CSV data </strong>
+
+#### File: (car_database.csv) 
+
 #### Outline:
-#### Logic: 
+
+1. Create a simple CSV called car_database.
+2. Add 4 headers to called "Make" "Model" "Year" "Price".
+3. Populate the CSV with with random cars taken from the internet.
+4. Place the CSV in a folder called data within the local repository and note the file path.
+
+
 ### <strong style="color: #f59c42"> Feature 1: Upload CSV file and store to local Dictionary  </strong>
 
 #### File: (upload_file.py)
@@ -175,8 +318,8 @@ graph TD
 6.	Use search_database to find car from inputs provided and store to variable called base price
 7.	If car not found using search_database return “car not found”
 8.	Calculate depreciation and milage adujustment
-a.	Set depreciation rate to 5% per year.
-b.	Set mileage adjustment factor to 0.01 per mile.
+      a.	Set depreciation rate to 5% per year.
+      b.	Set mileage adjustment factor to 0.01 per mile.
 9.	Calculate age of car using datetime module
 10.	Calculate current price of car based on formula price = base_price - (depreciation_rate * years_old * base_price) + (mileage_adjustment_factor * mileage)
 11.	Return calculated price.
