@@ -18,6 +18,15 @@ PEP8
 The aim of this project is to g. 
 
 # <strong style="color:salmon"> Features of Program </strong>
+## List of Features and their Logic
+
+### <strong style="color:#bc5090"> Main program </strong>
+
+### <strong style="color:#bc5090"> Feature 1: Upload CSV file and store to local Dictionary. </strong>
+### <strong style="color:#bc5090"> Feature 2: Search through car database to find price of car when it was new. </strong>
+### <strong style="color:#bc5090"> Feature 3: Append Car Database. </strong>
+### <strong style="color:#bc5090"> Feature 4: Estimate car price today based on depreciation and mileage. </strong>
+### <strong style="color: #bc5090"> Feature 5: Find all cars in database that meet budget and Make requirements. </strong>
 
 # <strong style="color:salmon"> Project Management </strong>
 
@@ -367,7 +376,7 @@ graph TD
   P --> Q
   J --> Q
 ```
-### <strong style="color: #f59c42"> Feature 5:  </strong>
+### <strong style="color: #f59c42"> Feature 5: Find all cars in database that meet budget and Make requirements  </strong>
 
 #### File: (find_cars_by_budget.py)
 
@@ -378,8 +387,8 @@ graph TD
 3.	Check that the inputs provided are valid. 
 4.	Create empty list to store cars found.
 5.	Iterate through car_database to find cars that satisfy:
-a.	Price < budget
-b.	Make matches Make (Optional)
+    - 	Price < budget
+    - Make matches Make (Optional)
 6.	Car found within those criteria returned to list.
 
 
@@ -418,7 +427,7 @@ graph TD
   G -->|End of database| L
   L --> M
 ```
-## Project Management Software
+## Project Tracking
 
 ### Platform
 
@@ -472,3 +481,45 @@ Epics:
 | Placeholder 3 (CAP-49)                       | 1            |                                             | Application Coding         | 0.5                      | Low         |
 
 
+### Sprint progression
+#### <strong style="color:#bc5090"> Day 1 </strong>
+
+##### Day Brief:
+##### Sprint Board at End of Day:
+##### Burnup chart:
+
+#### <strong style="color:#bc5090"> Day 2 </strong>
+
+##### Day Brief:
+##### Sprint Board at End of Day:
+##### Burnup chart:
+
+#### <strong style="color:#bc5090"> Day 3 </strong>
+
+##### Day Brief:
+##### Sprint Board at End of Day:
+##### Burnup chart:
+
+#### <strong style="color:#bc5090"> Day 4 </strong>
+
+##### Day Brief:
+##### Sprint Board at End of Day:
+##### Burnup chart:
+
+#### <strong style="color:#bc5090"> Day 5 </strong>
+
+##### Day Brief:
+##### Sprint Board at End of Day:
+##### Burnup chart:
+
+#### <strong style="color:#bc5090"> Day 6 </strong>
+
+##### Day Brief:
+##### Sprint Board at End of Day:
+##### Burnup chart:
+
+#### <strong style="color:#bc5090"> Day 7 </strong>
+
+##### Day Brief:
+##### Sprint Board at End of Day:
+##### Burnup chart:
