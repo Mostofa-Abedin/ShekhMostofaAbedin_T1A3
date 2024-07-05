@@ -734,13 +734,13 @@ graph TD
 - **Action:** Provide Make such that not all characters are alphabet letters.
 - **Expected Result:** Returns "Make should be string" error message.
 - **Actual Result:** Incorrect result. Need modification to main function.
-- **Status:** Patched. Main function needed some changes. See commit:
+- **Status:** Patched. Main function needed some changes. See commit: 56220b5 m- "Testing and Patching of Feature 4:Done for now"
 
 **Test 2: Enter Very High Mileage**
 - **Action:** Provide so high mileage such that car value becomes negative.
 - **Expected Result:** Message showing that car has no value.
-- **Actual Result:** Incorrect result. Need modification function to add new message letting user know car has no value.
-- **Status:** Patched. Estimate_price function needed some changes. See commit:
+- **Actual Result:** Incorrect result. Need modification to estimate_price function to add new message letting user know car has no value.
+- **Status:** Patched. Estimate_price function needed some changes. See commit: 56220b5 m- "Testing and Patching of Feature 4:Done for now"
 
 **Test 3: Invalid Year Type**
 - **Action:** Provide a non-integer value for Year.
@@ -753,6 +753,26 @@ graph TD
 - **Expected Result:** Raises TypeError with the message "Mileage should be a number."
 - **Actual Result:** Error message as expected.
 - **Status:** OK
+
+### <strong style="color: #f59c42"> Feature 5: Find all cars in database that meet budget and Make requirements  </strong>
+
+**Test 1: Invalid Make Type**
+- **Action:** Provide Make such that not all characters are alphabet letters.
+- **Expected Result:** Returns "Make should be string" error message.
+- **Actual Result:** Incorrect result. Need modification to main function.
+- **Status:** Patched. Main function needed some changes. See commit:
+
+**Test 2: Enter Very Low Budget**
+- **Action:** Enter so low budget that there are no cars available.
+- **Expected Result:** Message showing no cars found.
+- **Actual Result:** Incorrect result. Need modification to find_cars_by_budget function to add new message letting user know that there are no cars that match their criteria.
+- **Status:** Patched. find_cars_by_budget function needed some changes. See commit:
+
+**Test 3: Enter Make Not in Database**
+- **Action:** Enter a make that isn’t in the database.
+- **Expected Result:** Message showing Make not found in database.
+- **Actual Result:** Incorrect result. Need modification to find_cars_by_budget function to add new message letting user know that make not found.
+- **Status:** Patched. find_cars_by_budget function needed some changes. See commit:
 
 ## Project Tracking
 

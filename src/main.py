@@ -6,7 +6,7 @@ from estimate_price import estimate_price
 from find_cars_by_budget import find_cars_by_budget
 
 # Delete this later
-#from testing_file_to_be_deleted import append_database
+#from testing_file_to_be_deleted import find_cars_by_budget
 
 
 
@@ -34,7 +34,9 @@ def main():
             upload_file(file_path)
             
         elif choice == '2':
-            
+            if not file_path:
+                print("Please upload a file first using option 1.")
+                continue
             # Option 2: Search car database
             make = input("Enter Make: ")
             model = input("Enter Model: ")
@@ -68,7 +70,7 @@ def main():
             if not file_path:
                 print("Please upload a file first using option 1.")
                 continue
-            
+            # Option3: Append database
             make = input("Enter Make: ")
             model = input("Enter Model: ")
             year = input("Enter Year: ")
@@ -90,6 +92,10 @@ def main():
                 print(te)
                 
         elif choice == '4':
+            if not file_path:
+                print("Please upload a file first using option 1.")
+                continue
+            # Option 4: Estimated used car value
             make = input("Enter Make: ")
             model = input("Enter Model: ")
             year = input("Enter Year: ")
@@ -114,19 +120,26 @@ def main():
             
             
         elif choice == '5':
+            if not file_path:
+                print("Please upload a file first using option 1.")
+                continue
             # Option 5: Find cars within Budget
-            Price = float(input("Enter Maximun Budget: "))
-            Make = input("Enter Make (optional): ")
-            if Make == "":
-                Make = None
-            cars=find_cars_by_budget(Price,Make)
-            
-            if isinstance(cars, list):
-                for car in cars:
-                    print(f"Make: {car[0]}, Model: {car[1]}, Year: {car[2]}, Price: {car[3]}")
-            else:
-                # Print any error messages returned by the function
-                print(cars)
+            price = input("Enter Maximum Budget: ")
+            make = input("Enter Make (optional): ")
+            try:
+                price = float(price)
+                if make and not make.isalpha():
+                    raise ValueError("Make should contain only alphabetic characters.")
+                if make == "":
+                    make = None
+                cars = find_cars_by_budget(price, make)
+                if isinstance(cars, list):
+                    for car in cars:
+                        print(f"Make: {car[0]}, Model: {car[1]}, Year: {car[2]}, Price: {car[3]}")
+                else:
+                    print(cars)
+            except ValueError as ve:
+                print(f"Invalid input: {ve}")
             
         
             
