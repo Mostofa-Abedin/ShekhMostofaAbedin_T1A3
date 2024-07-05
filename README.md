@@ -642,6 +642,41 @@ graph TD
   G -->|End of database| L
   L --> M
 ```
+## Testing and Patching
+
+### <strong style="color: #f59c42"> Feature 1: Upload CSV file and store to local Dictionary  </strong>
+
+
+- **Test 1: Invalid File Path**
+  - **Action:** Provide an incorrect file path.
+  - **Expected Result:** Error message indicating the file was not found.
+  - **Actual Result:** Error message returned.
+  - **Status:** OK
+
+- **Test 2: CSV with Missing Header**
+  - **Action:** Provide a CSV file missing one or more required headers (Make, Model, Year, Price).
+  - **Expected Result:** Error message indicating missing header but uploads.
+  - **Actual Result:** Error message returned but still uploaded. Message and detection not satisfactory.
+  - **Status:** Patched. Code added to detect mandatory headers. See commit no 38
+
+- **Test 3: CSV with Missing Value**
+  - **Action:** Provide a CSV file where some rows have missing values for Make, Model, Year, or Price.
+  - **Expected Result:** Error message indicating missing value.
+  - **Actual Result:** Error message returned.
+  - **Status:** OK
+
+- **Test 4: CSV with Incorrect Value for Specific Car**
+  - **Action:** Provide a CSV file with an incorrect value format for a specific car (e.g., non-numeric price).
+  - **Expected Result:** File should still upload, but user notified of the specific row error.
+  - **Actual Result:** File uploaded, user notified of the error.
+
+- **Test 5: CSV with Duplicate Entries**
+  - **Action:** Provide a CSV file with duplicate car entries.
+  - **Expected Result:** File should still upload, but user notified of the specific row error.
+  - **Actual Result:** Did not pick up on duplicates.
+  - **Status:** Patched with new code inserted. See commit no:
+
+
 ## Project Tracking
 
 ### Platform

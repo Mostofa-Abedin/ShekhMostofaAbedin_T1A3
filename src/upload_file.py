@@ -11,6 +11,11 @@ def upload_file(file_path):
         with open(file_path, 'r') as file:
             # Create a CSV dictionary reader to parse the file
             reader = csv.DictReader(file)
+            # Check if CSV file has the correct headers
+            required_headers = {'Make', 'Model', 'Year', 'Price'}
+            if not required_headers.issubset(reader.fieldnames):
+                print("Error: CSV file is missing one or more required headers.")
+                sys.exit(1)  # Exit the program with a non-zero status
             # Initialize a counter for the row number
             row_number = 0
             # Iterate over each row in the CSV file
@@ -22,6 +27,9 @@ def upload_file(file_path):
                         raise ValueError(f"Missing required fields in row {row_number}")
                     # Create a key using the Make, Model, and Year from the row
                     key = (row['Make'], row['Model'], int(row['Year']))
+                     # Check for duplicate entry
+                    if key in car_database:
+                        raise ValueError(f"Duplicate entry found for {row['Make']} {row['Model']} {row['Year']} in row {row_number}")
                     # Store the Price in the car database dictionary, converting it to a float
                     car_database[key] = float(row['Price'])
                 except ValueError as ve:
