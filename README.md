@@ -18,23 +18,239 @@ PEP8
 The aim of this project is to g. 
 
 # <strong style="color:salmon"> Features of Program </strong>
+
+This section provides a high-level overview of the program's features and their underlying logic. It is designed for non-technical users to understand the capabilities and functionality of the program without delving into technical specifics. For a detailed examination of the internal mechanisms of each feature, please refer to the "Code Implementation Plan" section.
+
 ## List of Features and their Logic
 
 ### <strong style="color:#bc5090"> Main program </strong>
 
+This is the main program. It displays a main menu that asks the user to choose an option from:
+- Option 1: Upload car database.
+- Option 2: Search car database.
+- Option 3: Append to car database.
+- Option 4: Estimate used car price.
+- Option 5: Find cars within budget.
+- Option 6: Exit the application.
+
+From each option, individual functions are run and the output in returned. 
+
+```mermaid
+graph TD
+  A(["Main Menu"])
+  
+  B1["Option 1: Upload car database"]
+  B2["Option 2: Search car database"]
+  B3["Option 3: Append to car database"]
+  B4["Option 4: Estimate used car price"]
+  B5["Option 5: Find cars within budget"]
+  B6["Option 6: Exit the application"]
+
+  C6["Exit"]
+  C1["Run Upload car database function"]
+  C2["Run Search car database function"]
+  C3["Run Append to car database function"]
+  C4["Run Estimate used car price function"]
+  C5["Run Find cars within budget function"]
+
+  O1["Output"]
+  O2["Output"]
+  O3["Output"]
+  O4["Output"]
+  O5["Output"]
+
+  D1["Return"]
+  D2["Return"]
+  D3["Return"]
+  D4["Return"]
+  D5["Return"]
+  
+  A --> B6
+  A --> B1
+  A --> B2
+  A --> B3
+  A --> B4
+  A --> B5
+
+  B6 --> C6
+  B1 --> C1
+  B2 --> C2
+  B3 --> C3
+  B4 --> C4
+  B5 --> C5
+
+  C1 --> O1
+  C2 --> O2
+  C3 --> O3
+  C4 --> O4
+  C5 --> O5
+
+  O1 --> D1
+  O2 --> D2
+  O3 --> D3
+  O4 --> D4
+  O5 --> D5
+
+  D1 --> A
+  D2 --> A
+  D3 --> A
+  D4 --> A
+  D5 --> A
+
+```
 ### <strong style="color:#bc5090"> Feature 1: Upload CSV file and store to local Dictionary. </strong>
+
+From the Main menu, Option 1: Upload to car database. <br><Br>
+This feature allows the user to upload a CSV format file to the local database. It asks the user to input the file path of where the file is located. 
+- If it the inputs are are <strong style="color:green"> valid</strong> it reads the CSV and upload to local database and prints a success message. It then exits and returns to the main menu.
+- If the the inputs are <strong style="color:red"> invalid </strong>. It prints an error message and return to the main menu. 
+
+```mermaid
+graph TD
+  A(["Main Menu"])
+  B(["Option 1: Upload to car database"])
+  C(["Ask user for file path"])
+  D{"Are inputs valid"}
+  E["Read CSV and upload to local database"]
+  F["Print success message"]
+  G["Print error message"]
+  H(["Return"])
+
+  A --> B
+  B --> C
+  C --> D
+  D -->|Yes| E
+  D -->|No| G
+  E --> F
+  F --> H
+  G --> H
+  H --> A
+
+```
 ### <strong style="color:#bc5090"> Feature 2: Search through car database to find price of car when it was new. </strong>
+
+From the Main menu, Option 2: Search car database. <br><br>
+This feature allows the user to search through the car database to find the price of a specific car when it was new. It asks the user to specify the Make,Model and Year of the vehicle.
+- If the inputs are <strong style="color:green"> valid</strong> it loops through the database to find the car and returns the price. It then exits back to the main menu.
+- If the inputs are <strong style="color:red"> invalid </strong>, it prints an error message and returns back to the main menu.
+
+```mermaid
+graph TD
+  A(["Main Menu"])
+  B(["Option 2: Search car database"])
+  C(["Ask user for Make, Model, and Year"])
+  D{"Are inputs valid?"}
+  E["Loop through database to find the car"]
+  F["Return price of the car"]
+  G["Print error message"]
+  H(["Return"])
+
+  A --> B
+  B --> C
+  C --> D
+  D -->|Yes| E
+  D -->|No| G
+  E --> F
+  F --> H
+  G --> H
+  H --> A
+
+```
 ### <strong style="color:#bc5090"> Feature 3: Append Car Database. </strong>
+
+From the Main menu, Option 3: Append to car database. <br><br>
+
+This feature allows the user to add a new vehicle to the car database. It asks the user to input Make,Model and Year one by one.
+- If the inputs are <strong style="color:green"> valid</strong>. The car is appended to the car database and exit back to main menu.
+- If the inputs are <strong style="color:red"> invalid </strong>. Print error message and return back to main menu. 
+
+ ```mermaid
+graph TD
+  A(["Main Menu"])
+  B(["Option 3: Append to car database"])
+  C(["Ask user for Make, Model, and Year"])
+  D{"Are inputs valid?"}
+  E["Append car to database"]
+  F["Print success message"]
+  G["Print error message"]
+  H(["Return"])
+
+  A --> B
+  B --> C
+  C --> D
+  D -->|Yes| E
+  D -->|No| G
+  E --> F
+  F --> H
+  G --> H
+  H --> A
+```
+
 ### <strong style="color:#bc5090"> Feature 4: Estimate car price today based on depreciation and mileage. </strong>
+
+From the Main menu, Option 4: Estimate used car price. <br><br>
+
+This feature allows the user to find the estimated current market price for a vehicle. It asks the user to input Make,Model and Year one by one. 
+- If <strong style="color:green"> valid</strong> inputs provided, return estimated vehicle price and go back to main menu.
+- If <strong style="color:red"> invalid </strong>  inputs provided, return error message and go back to main menu.
+
+```mermaid
+graph TD
+  A(["Main Menu"])
+  B(["Option 3: Estimate used car price"])
+  C(["Ask user for Make, Model, and Year"])
+  D{"Are inputs valid?"}
+  E["Return estimated vehicle price"]
+  F["Print error message"]
+  G(["Return"])
+
+  A --> B
+  B --> C
+  C --> D
+  D -->|Yes| E
+  D -->|No| F
+  E --> G
+  F --> G
+  G --> A
+```
 ### <strong style="color: #bc5090"> Feature 5: Find all cars in database that meet budget and Make requirements. </strong>
+
+From the Main menu, Option 5: Find cars by budget. <br><br>
+
+This feature allows the user to search through the car datbase to find all cars that are within the specified budget and Make. It asks the user to input a price and optionally also a Make.
+- If <strong style="color:green"> valid</strong> inputs are provided, return a list of vehciles that match criteria
+- If <strong style="color:red"> invalid </strong>  inputs provided, return error message and go back to main menu.
+
+```mermaid
+graph TD
+  A(["Main Menu"])
+  B(["Option 5: Find cars by budget"])
+  C(["Ask user for Price and optionally Make"])
+  D{"Are inputs valid?"}
+  E["Return list of vehicles that match criteria"]
+  F["Print error message"]
+  G(["Return"])
+
+  A --> B
+  B --> C
+  C --> D
+  D -->|Yes| E
+  D -->|No| F
+  E --> G
+  F --> G
+  G --> A
+
+```
 
 # <strong style="color:salmon"> Project Management </strong>
 
 ## Code Implementation plan 
 
-<strong>Disclaimer -This section was initially written during the planning stage, before any code for the program was written. It has been actively updated as the project progressed. Therefore, there may be some differences between the initial plan and the final product.. </strong>
+<strong>Disclaimer -This section was initially written during the planning stage, before any code for the program was written. It has been actively updated as the project progressed. Therefore, there may be some differences between the initial plan and the final product. </strong>
 
-### <strong style="color: #f59c42"> Main Program (main.py) </strong>
+### <strong style="color: #f59c42"> Main Program </strong>
+
+#### File: (main.py) 
 
 #### Pseudocode Outline:
 
@@ -171,8 +387,7 @@ graph TD
 
 ### <strong style="color: #f59c42"> CSV data </strong>
 
-####
- File: (car_database.csv) 
+#### File: (car_database.csv) 
 
 #### Pseudocode Outline:
 
