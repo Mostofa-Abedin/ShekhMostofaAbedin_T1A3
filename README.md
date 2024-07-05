@@ -702,6 +702,32 @@ graph TD
    - **Actual Result:** Returns as expected.
    - **Status:** OK
 
+### <strong style="color: #f59c42"> Feature 3: Append Car Database </strong>
+
+**Test 1: Valid Inputs Without File Path**
+- **Action:** Append a valid car entry without running Option 1 first.
+- **Expected Result:** Error message asking the user to run option 1 first.
+- **Actual Result:** Error message as expected.
+- **Status:** OK
+
+**Test 2: Invalid Make Type**
+- **Action:** Provide Make such that not all characters are alphabet letters.
+- **Expected Result:** Returns "Make should be string" error message.
+- **Actual Result:** Incorrect result. Need modification to main function.
+- **Status:** Patched. Main function needed some changes. See commit:
+
+**Test 3: Invalid Year Type**
+- **Action:** Provide a non-integer value for Year.
+- **Expected Result:** Returns "Error: Year must be an integer and Price must be a number."
+- **Actual Result:** Error message as expected.
+- **Status:** OK
+
+**Test 4: Invalid Year Type**
+- **Action:** Provide a non-integer value for Price.
+- **Expected Result:** Returns "Error: Year must be an integer and Price must be a number."
+- **Actual Result:** Error message as expected.
+- **Status:** OK
+
 ## Project Tracking
 
 ### Platform

@@ -6,12 +6,14 @@ from estimate_price import estimate_price
 from find_cars_by_budget import find_cars_by_budget
 
 # Delete this later
-#from testing_file_to_be_deleted import find_cars_by_budget
+#from testing_file_to_be_deleted import append_database
 
 
 
 # Create a function to run the Car Dealership Management System
 def main():
+    global file_path
+    file_path = None  # Initialize file_path to None
 	# Use a while loop to continiously show options
     while True:
         # Display the menu options to the user
@@ -63,22 +65,30 @@ def main():
 
 
         elif choice == '3':
-            # Option 3: Append to car database
+            if not file_path:
+                print("Please upload a file first using option 1.")
+                continue
+            
             make = input("Enter Make: ")
             model = input("Enter Model: ")
             year = input("Enter Year: ")
             price = input("Enter Price: ")
-            
             try:
-                year = int(year)  # Convert year to an integer
-                price = float(price)  # Convert price to a float
+                year = int(year)
+                price = float(price)
+                if not make.isalpha():
+                    raise ValueError("Make should contain only alphabetic characters.")
+            
+                append_to_csv = input("Would you like to append this to the CSV file? (yes/no): ").strip().lower()
+                if append_to_csv == 'yes' and file_path:
+                    append_database(make, model, year, price, file_path)
+                else:
+                    append_database(make, model, year, price)
             except ValueError:
                 print("Year must be an integer and Price must be a number.")
-                continue
-
-            # Call the append_database function with the provided inputs
-            append_database(make, model, year, price)
-            
+            except TypeError as te:
+                print(te)
+                
         elif choice == '4':
             # Option 4: Estimate used car price
             make = input("Enter Make: ")

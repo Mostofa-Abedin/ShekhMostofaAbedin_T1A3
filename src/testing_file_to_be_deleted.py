@@ -1,31 +1,32 @@
+import csv  # Importing the CSV module to handle CSV file operations
+from upload_file import car_database  # Import the shared car_database
 
-# Import the search_database function from the search_database module
-from upload_file import car_database
-
-
-# Function to find cars in Budget
-def find_cars_by_budget(price, make=None):
+def append_database(make, model, year, price, file_path=None):
     try:
-         # Validate the types of the inputs
-        if not isinstance(make, (str, type(None))):
+        # Validate the types of the inputs
+        if not isinstance(make, str):
             raise TypeError("Make should be a string.")
+        if not isinstance(model, str):
+            raise TypeError("Model should be a string.")
+        if not isinstance(year, int):
+            raise TypeError("Year should be an integer.")
         if not isinstance(price, (int, float)):
             raise TypeError("Price should be a number.")
+
+        # Add the new car entry to the database
+        car_database[(make, model, year)] = price
         
-        # Initialize an empty list to store the results
-        car_found = []
-        
-        # Iterate over each car in the car database
-        for (find_make, find_model, find_year), find_price in car_database.items():
-            # Check if the car is within the budget
-            # If preferred_make is specified, also check if the car's make matches the preferred make
-            if find_price <= price and (make is None or make == find_make):
-                # Add the car details to the results list
-                car_found.append((find_make, find_model, find_year, find_price))
-        # Return the list of cars that match the criteria
-        return car_found
-    
+        # Check if the user wants to append to the CSV file
+        if file_path:
+            with open(file_path, 'a', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerow([make, model, year, price])
+            print(f"{year} {make} {model} was added to the CSV file successfully.")
+
+        # Print success message for adding to the dictionary
+        print(f"{year} {make} {model} was added successfully to the database.")
+
     except TypeError as te:
-        return f"TypeError: {te}"
+        print(f"TypeError: {te}")
     except Exception as e:
-        return f"An unexpected error occurred: {e}"
+        print(f"An unexpected error occurred: {e}")
