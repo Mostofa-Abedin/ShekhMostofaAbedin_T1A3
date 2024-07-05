@@ -714,7 +714,7 @@ graph TD
 - **Action:** Provide Make such that not all characters are alphabet letters.
 - **Expected Result:** Returns "Make should be string" error message.
 - **Actual Result:** Incorrect result. Need modification to main function.
-- **Status:** Patched. Main function needed some changes. See commit:
+- **Status:** Patched. Main function needed some changes. See commit: 69a4dd6 -m "Testing and Patching of Feature 3:Done for now"
 
 **Test 3: Invalid Year Type**
 - **Action:** Provide a non-integer value for Year.
@@ -725,6 +725,32 @@ graph TD
 **Test 4: Invalid Year Type**
 - **Action:** Provide a non-integer value for Price.
 - **Expected Result:** Returns "Error: Year must be an integer and Price must be a number."
+- **Actual Result:** Error message as expected.
+- **Status:** OK
+
+### <strong style="color: #f59c42"> Feature 4: Estimate car price today based on depreciation and mileage. </strong>
+
+**Test 1: Invalid Make Type**
+- **Action:** Provide Make such that not all characters are alphabet letters.
+- **Expected Result:** Returns "Make should be string" error message.
+- **Actual Result:** Incorrect result. Need modification to main function.
+- **Status:** Patched. Main function needed some changes. See commit:
+
+**Test 2: Enter Very High Mileage**
+- **Action:** Provide so high mileage such that car value becomes negative.
+- **Expected Result:** Message showing that car has no value.
+- **Actual Result:** Incorrect result. Need modification function to add new message letting user know car has no value.
+- **Status:** Patched. Estimate_price function needed some changes. See commit:
+
+**Test 3: Invalid Year Type**
+- **Action:** Provide a non-integer value for Year.
+- **Expected Result:** Returns "Error: Year must be an integer and Price must be a number."
+- **Actual Result:** Error message as expected.
+- **Status:** OK
+
+**Test 4: Invalid Mileage Type**
+- **Action:** Provide a non-numeric value for mileage.
+- **Expected Result:** Raises TypeError with the message "Mileage should be a number."
 - **Actual Result:** Error message as expected.
 - **Status:** OK
 

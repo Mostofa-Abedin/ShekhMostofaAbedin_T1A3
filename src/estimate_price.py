@@ -53,8 +53,10 @@ def estimate_price(make, model, year, mileage):
 
         # Calculate the final price
         price = base_price - depreciation + mileage_adjustment
-        # Return the calculated price
-        return price
+        if price <= 0:
+            return "After deprication, estimated value is 0. It is only worth scrap value"
+        else:
+            return price
     
     except TypeError as te:
         return f"TypeError: {te}"

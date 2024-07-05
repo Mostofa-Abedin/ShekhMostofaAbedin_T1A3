@@ -90,23 +90,26 @@ def main():
                 print(te)
                 
         elif choice == '4':
-            # Option 4: Estimate used car price
             make = input("Enter Make: ")
             model = input("Enter Model: ")
             year = input("Enter Year: ")
             mileage = input("Enter Mileage: ")
-            
             try:
-                year = int(year)  # Convert year to an integer
-                mileage = float(mileage)  # Convert mileage to a float
+                year = int(year)
+                mileage = float(mileage)
+                if not make.isalpha():
+                    raise ValueError("Make should contain only alphabetic characters.")
+                if not model.isalpha():
+                    raise ValueError("Model should contain only alphabetic characters.")
+                price = estimate_price(make, model, year, mileage)
+                if isinstance(price, (int, float)):
+                    print(f"The value of a {year} {make} {model} is {price}")
+                else:
+                    print(price)
             except ValueError:
                 print("Year must be an integer and Mileage must be a number.")
-                continue
-            price = estimate_price(make,model,year,mileage)
-            if isinstance(price,(int, float)):
-                print(f"The value of a {year} {make} {model} is {price}")
-            else:
-                print(price)
+            except TypeError as te:
+                print(te)
 
             
             
