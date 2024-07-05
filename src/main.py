@@ -30,21 +30,37 @@ def main():
             # Option 1: Upload car database
             file_path = input("Enter file path: ")
             upload_file(file_path)
-        elif choice == '2':
-            # Option 2: Search car database
             
+        elif choice == '2':
+            
+            # Option 2: Search car database
             make = input("Enter Make: ")
             model = input("Enter Model: ")
-            year = int(input("Enter Year: "))
-            price = search_database(make, model, year)
+            year = input("Enter Year: ")
+            
             try:
-                # Attempt to convert price to float
-                price_float = float(price)
-                # If successful, print the formatted price message
-                print(f"The price of {year} {make} {model} is {price_float}")
-            except ValueError:
-                # If conversion fails, price is a string (error message), so print it directly
-                print(price)
+                year = int(year)  # Convert year to an integer
+
+                # Validate that Make contains only alphabetic characters
+                if not make.isalpha():
+                    raise ValueError("Make should contain only alphabetic characters.")
+               
+                
+                price = search_database(make, model, year)
+                
+                try:
+                    # Attempt to convert price to float
+                    price_float = float(price)
+                    # If successful, print the formatted price message
+                    print(f"The price of {year} {make} {model} is {price_float}")
+                except ValueError:
+                    # If conversion fails, price is a string (error message), so print it directly
+                    print(price)
+            
+            except ValueError as ve:
+                # Handle invalid year or invalid make/model input
+                print(ve)
+
 
         elif choice == '3':
             # Option 3: Append to car database

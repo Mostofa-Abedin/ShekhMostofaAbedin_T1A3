@@ -647,35 +647,60 @@ graph TD
 ### <strong style="color: #f59c42"> Feature 1: Upload CSV file and store to local Dictionary  </strong>
 
 
-- **Test 1: Invalid File Path**
+**Test 1: Invalid File Path**
   - **Action:** Provide an incorrect file path.
   - **Expected Result:** Error message indicating the file was not found.
   - **Actual Result:** Error message returned.
   - **Status:** OK
 
-- **Test 2: CSV with Missing Header**
+**Test 2: CSV with Missing Header**
   - **Action:** Provide a CSV file missing one or more required headers (Make, Model, Year, Price).
   - **Expected Result:** Error message indicating missing header but uploads.
   - **Actual Result:** Error message returned but still uploaded. Message and detection not satisfactory.
-  - **Status:** Patched. Code added to detect mandatory headers. See commit no 38
+  - **Status:** Patched. Code added to detect mandatory headers. See commit aa8a2b32. -m "Testing and Patching of Feature 1:Done"
 
-- **Test 3: CSV with Missing Value**
+**Test 3: CSV with Missing Value**
   - **Action:** Provide a CSV file where some rows have missing values for Make, Model, Year, or Price.
   - **Expected Result:** Error message indicating missing value.
   - **Actual Result:** Error message returned.
   - **Status:** OK
 
-- **Test 4: CSV with Incorrect Value for Specific Car**
+**Test 4: CSV with Incorrect Value for Specific Car**
   - **Action:** Provide a CSV file with an incorrect value format for a specific car (e.g., non-numeric price).
   - **Expected Result:** File should still upload, but user notified of the specific row error.
   - **Actual Result:** File uploaded, user notified of the error.
 
-- **Test 5: CSV with Duplicate Entries**
+**Test 5: CSV with Duplicate Entries**
   - **Action:** Provide a CSV file with duplicate car entries.
   - **Expected Result:** File should still upload, but user notified of the specific row error.
   - **Actual Result:** Did not pick up on duplicates.
-  - **Status:** Patched with new code inserted. See commit no:
+  - **Status:** Patched with new code inserted. See commit aa8a2b32. -m "Testing and Patching of Feature 1:Done"
 
+### <strong style="color: #f59c42"> Feature 2: Search through car database to find price of car when it was new  </strong>
+
+**Test 1: Invalid Make Type**
+   - **Action:** Provide Make such that not all characters are alphabet letters.
+   - **Expected Result:** Returns "Make should be string" error message.
+   - **Actual Result:** Incorrect result. Need modification to main function.
+   - **Status:** Patched. Main function needed some changes. See commit:
+
+**Test 2: Invalid Year Type**
+   - **Action:** Provide a non-integer value for Year.
+   - **Expected Result:** Returns "TypeError: Year should be an integer."
+   - **Actual Result:** Error message thrown. However, it is different from the expected message.
+   - **Status:** Keep it as it is for now.
+
+**Test 3: Empty Car Database**
+   - **Action:** Search for a car when the car_database is empty.
+   - **Expected Result:** Returns "Car not found in the database."
+   - **Actual Result:** Returns as expected.
+   - **Status:** OK
+
+**Test 4: Case Sensitivity in Make and Model**
+   - **Action:** Search for a car with different case (e.g., make instead of Make).
+   - **Expected Result:** Case sensitivity may cause "Car not found in the database."
+   - **Actual Result:** Returns as expected.
+   - **Status:** OK
 
 ## Project Tracking
 
