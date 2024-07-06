@@ -161,29 +161,37 @@ graph TD
 From the Main menu, Option 3: Append to car database. <br><br>
 
 This feature allows the user to add a new vehicle to the car database. It asks the user to input Make,Model and Year one by one.
-- If the inputs are <strong style="color:green"> valid</strong>. The car is appended to the car database and exit back to main menu.
+- If the inputs are <strong style="color:green"> valid</strong>. The car is then appended to the car database. The user is then asked if they would also like to append to the CSV file uploaded in feature 1. 
+    - If the user selects <strong style="color:green"> Yes</strong>. The car is als appended to the CSV and then program exit back to main menu.
+    - If the user selects <strong style="color:red"> No</strong>. The car is not appended to the CSV and then program exit back to main menu.
 - If the inputs are <strong style="color:red"> invalid </strong>. Print error message and return back to main menu. 
 
- ```mermaid
+```mermaid
 graph TD
   A(["Main Menu"])
   B(["Option 3: Append to car database"])
   C(["Ask user for Make, Model, and Year"])
   D{"Are inputs valid?"}
   E["Append car to database"]
-  F["Print success message"]
-  G["Print error message"]
-  H(["Return"])
+  F{"Append to CSV file?"}
+  G1["Append car to CSV"]
+  G2["Do not append to CSV"]
+  H["Print error message"]
+  I(["Return"])
 
   A --> B
   B --> C
   C --> D
   D -->|Yes| E
-  D -->|No| G
+  D -->|No| H
   E --> F
-  F --> H
-  G --> H
-  H --> A
+  F -->|Yes| G1
+  F -->|No| G2
+  G1 --> I
+  G2 --> I
+  H --> I
+  I --> A
+
 ```
 
 ### <strong style="color:#bc5090"> Feature 4: Estimate car price today based on depreciation and mileage. </strong>
@@ -197,7 +205,7 @@ This feature allows the user to find the estimated current market price for a ve
 ```mermaid
 graph TD
   A(["Main Menu"])
-  B(["Option 3: Estimate used car price"])
+  B(["Option 4: Estimate used car price"])
   C(["Ask user for Make, Model, and Year"])
   D{"Are inputs valid?"}
   E["Return estimated vehicle price"]
@@ -528,9 +536,61 @@ graph TD
   G --> I
   H --> I
 ```
+#### <strong style="color:red">**New Functionality added later</strong>
+
+During the testing and patching phase, additional functionality was introduced to Feature 3. This was done to try and meet some of the assignment/project requirements. 
+The new functionality works such that, the user can also choose to add the vehicle to the CSV uploaded in Feature 3. 
+
+#### Updated Pseudocode Outline:
+
+1.	Import the car_database dictionary base created in function 1.
+2.  Import CSV module to handle CSV files.
+3.	Create a function called append_database that takes the arguments of (Make,Model,Year,Price, file_path). *File_path should be initalized as None.
+4.	Check that the inputs provided are valid.
+5.	Add the car to the database where the key is a tuple of Make,Model,Year and the value is Price.
+6.  Print success message
+6.  If file_path exists(ie:User wants to add to CSV)
+7.	Open CSV file and append car to last row.
+8. Print second success message. 
+
+#### Updated Pseudocode Logic:
+
+```mermaid
+graph TD
+  A([Start])
+  B[Import car_database dictionary]
+  C[Import CSV module]
+  D[Define function append_database takes inputs Make, Model, Year, Price, file_path=None]
+  E[Check if inputs are valid]
+  F{Inputs valid?}
+  G[Add car to database key: Make, Model, Year, value: Price]
+  H[Print success message]
+  I{file_path exists?}
+  J[Open CSV file and append car to last row]
+  K[Print second success message]
+  L[Log error: Invalid inputs]
+  M([End])
+
+  A --> B
+  B --> C
+  C --> D
+  D --> E
+  E --> F
+  F -->|Yes| G
+  F -->|No| L
+  G --> H
+  H --> I
+  I -->|Yes| J
+  I -->|No| M
+  J --> K
+  K --> M
+  L --> M
+```
+
 ### <strong style="color: #f59c42"> Feature 4: Estimate car price today based on depreciation and mileage. </strong>
 
 #### File: (estimate_price.py)
+
 
 #### Pseudocode Outline:
 
@@ -760,19 +820,19 @@ graph TD
 - **Action:** Provide Make such that not all characters are alphabet letters.
 - **Expected Result:** Returns "Make should be string" error message.
 - **Actual Result:** Incorrect result. Need modification to main function.
-- **Status:** Patched. Main function needed some changes. See commit:
+- **Status:** Patched. Main function needed some changes. See commit: a6d1582 -m "Testing and Patching of Feature 5:Done for now"
 
 **Test 2: Enter Very Low Budget**
 - **Action:** Enter so low budget that there are no cars available.
 - **Expected Result:** Message showing no cars found.
 - **Actual Result:** Incorrect result. Need modification to find_cars_by_budget function to add new message letting user know that there are no cars that match their criteria.
-- **Status:** Patched. find_cars_by_budget function needed some changes. See commit:
+- **Status:** Patched. find_cars_by_budget function needed some changes. See commit: a6d1582 -m "Testing and Patching of Feature 5:Done for now"
 
 **Test 3: Enter Make Not in Database**
 - **Action:** Enter a make that isn’t in the database.
 - **Expected Result:** Message showing Make not found in database.
 - **Actual Result:** Incorrect result. Need modification to find_cars_by_budget function to add new message letting user know that make not found.
-- **Status:** Patched. find_cars_by_budget function needed some changes. See commit:
+- **Status:** Patched. find_cars_by_budget function needed some changes. See commit: a6d1582 -m "Testing and Patching of Feature 5:Done for now"
 
 ## Project Tracking
 
