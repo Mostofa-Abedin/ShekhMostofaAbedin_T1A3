@@ -338,7 +338,7 @@ graph TD
   I have created a sample file called car_data.csv. It is recommended to use this csv file as it has already been populated with relevant data. The path for it is:
 
   ```bash
-  Enter file path: ../data/car_data.csv
+  Enter file path: data/car_data.csv
   ```
 
 **Outputs:**
