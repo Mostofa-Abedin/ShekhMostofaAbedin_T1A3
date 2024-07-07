@@ -1,3 +1,65 @@
+# <strong style="color:salmon"> Table of contents </strong>
+
+- [About the Project](#about-the-project)
+  - [Important Links](#important-links)
+  - [Built with](#built-with)
+  - [Modules used](#Modules-used)
+  - [Style Guide](#style-guide)
+- [Introduction](#introduction)
+  - [Car Dealership Management System](#car-dealership-management-system)
+- [Requirements](#requirements)
+  - [Hardware Requirements](#hardware-requirements)
+  - [Software Requirements](#software-requirements)
+- [Step-by-Step Installation Instructions](#step-by-step-installation-instructions)
+  - [1. Use Local Copy or Clone Git Repository](#1-use-local-copy-or-clone-git-repository)
+  - [2. Navigate to the Project Directory](#2-navigate-to-the-project-directory)
+  - [3. Verify Your Directory](#3-verify-your-directory)
+  - [4. Make Shell Scripts Executable](#4-make-shell-scripts-executable)
+  - [5. Run the Program](#5-run-the-program)
+  - [Additional Notes](#additional-notes)
+- [How to use the program](#how-to-use-the-program)
+  - [Main Program](#main-program)
+  - [Feature 1: Upload CSV file and store to local Dictionary](#feature-1-upload-csv-file-and-store-to-local-dictionary)
+    - [Steps](#steps)
+  - [Feature 2: Search through car database to find price of car when it was new](#feature-2-search-through-car-database-to-find-price-of-car-when-it-was-new)
+    - [Steps](#steps-1)
+  - [Feature 3: Append Car Database](#feature-3-append-car-database)
+    - [Steps](#steps-2)
+  - [Feature 4: Estimate car price today based on depreciation and mileage](#feature-4-estimate-car-price-today-based-on-depreciation-and-mileage)
+    - [Steps](#steps-3)
+  - [Feature 5: Find all cars in database that meet budget and Make requirements](#feature-5-find-all-cars-in-database-that-meet-budget-and-make-requirements)
+    - [Steps](#steps-4)
+- [Project Management](#project-management)
+  - [Code Implementation plan](#code-implementation-plan)
+  - [Feature 1: Upload CSV file and store to local Dictionary](#feature-1-upload-csv-file-and-store-to-local-dictionary)
+  - [Feature 2: Search through car database to find price of car when it was new](#feature-2-search-through-car-database-to-find-price-of-car-when-it-was-new)
+  - [Feature 3: Append Car Database](#feature-3-append-car-database)
+  - [Feature 4: Estimate car price today based on depreciation and mileage](#feature-4-estimate-car-price-today-based-on-depreciation-and-mileage)
+  - [Feature 5: Find all cars in database that meet budget and Make requirements](#feature-5-find-all-cars-in-database-that-meet-budget-and-make-requirements)
+- [Testing and Patching](#testing-and-patching)
+  - [Feature 1: Upload CSV file and store to local Dictionary](#feature-1-upload-csv-file-and-store-to-local-dictionary)
+  - [Feature 2: Search through car database to find price of car when it was new](#feature-2-search-through-car-database-to-find-price-of-car-when-it-was-new)
+  - [Feature 3: Append Car Database](#feature-3-append-car-database)
+  - [Feature 4: Estimate car price today based on depreciation and mileage](#feature-4-estimate-car-price-today-based-on-depreciation-and-mileage)
+  - [Feature 5: Find all cars in database that meet budget and Make requirements](#feature-5-find-all-cars-in-database-that-meet-budget-and-make-requirements)
+- [Project Tracking](#project-tracking)
+  - [Platform](#platform)
+  - [Methodology](#methodology)
+  - [Number of Epics](#number-of-epics-2)
+  - [Number of stories](#number-of-stories-18)
+  - [Total story points](#total-story-points-71)
+  - [Number of subtasks](#number-of-subtasks-28)
+  - [Detailed breakdown of tickets](#detailed-breakdown-of-tickets)
+  - [Sprint progression](#sprint-progression)
+    - [Day 1](#day-1)
+    - [Day 2](#day-2)
+    - [Day 3](#day-3)
+    - [Day 4](#day-4)
+    - [Day 5](#day-5)
+    - [Day 6](#day-6)
+    - [Day 7](#day-7)
+  - [Burn-up Chart for Sprint](#burn-up-chart-for-sprint)
+
 # <strong style="color:salmon"> About the Project </strong>
 
 This project serves as part of the fulfillment of T1A2: Portfolio towards a Diploma of Information Technology at Coder Academy.
@@ -11,15 +73,38 @@ Link to Git repository: https://github.com/Mostofa-Abedin/-ShekhMostofaAbedin-_T
 - Language - Python 3.10.12
 - Interpreter - VScode
 
+### Modules used
+
+**Python modules:**
+
+- csv - Used to handle CSV file operations.
+- sys - Used for system-specific parameters and functions (used in upload_file.py).
+- datetime - Used to work with dates (used in estimate_price.py).
+- math - Used for mathematical operations (used in estimate_price.py).
+
+**Custom modules:**
+
+- upload_file - It contains the upload_file function and car_database dictionary.
+- search_database - It contains the search_database function.
+- append_database - It contains the append_database function.
+- estimate_price - It contains the estimate_price function.
+- find_cars_by_budget - It contains the find_cars_by_budget function
+
 ### Style Guide
 
-Code for this project was written adhering to PEP8 guidelines as it it is the most universally used convention. Reference to the PEP8 guidelines: https://peps.python.org/pep-0008/
+The code for this project adheres to the PEP 8 guidelines, which is the most widely adopted Python style guide. Using PEP 8 makes the code is readable, consistent, and maintainable.
+
+- **Indentation:** At each indentation level 4 spaces.
+- **Line Length:** Each line was limited to a maximum of 79 characters.
+- **Naming Conventions:** Use snake_case for functions and variables.
+- **Whitespace:** Avoid extraneous whitespace in the code.
+- Please refer to the PEP 8 guidelines here https://peps.python.org/pep-0008/
 
 # <strong style="color:salmon"> Introduction </strong>
 
 ### Car Dealership Management System
 
-Welcome to the Car Dealership management system! This application allows users to manage a car database. Users are able to upload car data, search for cars, add new cars, estimate used car prices and find cars within a specific budget.
+Welcome to the Car Dealership management system! This application allows users to manage a car database. Users are able to upload car data, search for cars, add new cars, estimate used car prices and find cars within a specific budget. Hope you find the application to your liking!
 
 # <strong style="color:salmon"> Requirements </strong>
 
@@ -96,13 +181,13 @@ Finally, execute the run.sh script to set up and run the application using the c
 
 ### Additional Notes
 
-- Ensure Dependencies: <br>
+- **Ensure Dependencies:** <br>
   The requirements.txt file includes all necessary dependencies. The run.sh script will install these automatically. However, in case of this specific program, the requirements.txt is empty as there are dependencies that are external to Python library.
 
-- Virtual Environment: <br>
+- **Virtual Environment:** <br>
   The program will create and use a virtual environment. This is to manage dependencies and avoid potential conflicts with other Python projects on your system.
 
-- Execution: <br>
+- **Execution:** <br>
   The run.sh script should perform all the necessary setup checks before running the main application. Please Make sure you are in the correct project directory when you run this script.
 
 # <strong style="color:salmon"> How to use the program. </strong>
