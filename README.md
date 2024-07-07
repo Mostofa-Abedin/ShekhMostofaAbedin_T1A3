@@ -1321,11 +1321,15 @@ A detailed breakdown of the tickets can be found in the table below.
 
 ##### Sprint Board at End of Day:
 
+![DAY 1 Sprint Board](/docs/Day_1.png)
+
 #### <strong style="color:#bc5090"> Day 2 </strong>
 
 ##### Day Brief:
 
 ##### Sprint Board at End of Day:
+
+![DAY 2 Sprint Board](/docs/Day_2.png)
 
 #### <strong style="color:#bc5090"> Day 3 </strong>
 
@@ -1333,11 +1337,15 @@ A detailed breakdown of the tickets can be found in the table below.
 
 ##### Sprint Board at End of Day:
 
+![DAY 3 Sprint Board](/docs/Day_3.png)
+
 #### <strong style="color:#bc5090"> Day 4 </strong>
 
 ##### Day Brief:
 
 ##### Sprint Board at End of Day:
+
+![DAY 4 Sprint Board](/docs/Day_4.png)
 
 #### <strong style="color:#bc5090"> Day 5 </strong>
 
@@ -1345,11 +1353,15 @@ A detailed breakdown of the tickets can be found in the table below.
 
 ##### Sprint Board at End of Day:
 
+![DAY 5 Sprint Board](/docs/Day_5.png)
+
 #### <strong style="color:#bc5090"> Day 6 </strong>
 
 ##### Day Brief:
 
 ##### Sprint Board at End of Day:
+
+![DAY 6 Sprint Board](/docs/Day_6.png)
 
 #### <strong style="color:#bc5090"> Day 7 </strong>
 
@@ -1357,4 +1369,8 @@ A detailed breakdown of the tickets can be found in the table below.
 
 ##### Sprint Board at End of Day:
 
+![DAY 7 Sprint Board](/docs/Day_7.png)
+
 ### Burn-up Chart for Sprint
+
+![Burn-up chart for entire sprint](/docs/burn_up_chart_final.png)
