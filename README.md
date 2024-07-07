@@ -23,6 +23,8 @@ Welcome to the Car Dealership management system! This application allows users t
 
 # <strong style="color:salmon"> Requirements </strong>
 
+Before running the program, ensure your system meets the following requirements:
+
 ### Hardware Requirements
 
 - Operating System: Windows, macOS, or Linux
@@ -31,8 +33,6 @@ Welcome to the Car Dealership management system! This application allows users t
 - Storage: 1 GB of available space
 
 ### Software Requirements
-
-Before running the program, ensure your system meets the following requirements:
 
 - Python 3 installed
 - pip (Python package installer) installed
@@ -94,7 +94,18 @@ Finally, execute the run.sh script to set up and run the application using the c
 ./run.sh
 ```
 
-# <strong style="color:salmon"> How to use Program. </strong>
+### Additional Notes
+
+- Ensure Dependencies: <br>
+  The requirements.txt file includes all necessary dependencies. The run.sh script will install these automatically. However, in case of this specific program, the requirements.txt is empty as there are dependencies that are external to Python library.
+
+- Virtual Environment: <br>
+  The program will create and use a virtual environment. This is to manage dependencies and avoid potential conflicts with other Python projects on your system.
+
+- Execution: <br>
+  The run.sh script should perform all the necessary setup checks before running the main application. Please Make sure you are in the correct project directory when you run this script.
+
+# <strong style="color:salmon"> How to use the program. </strong>
 
 This section provides a high-level overview of the program's features and their underlying logic. It is designed for non-technical users to understand the capabilities and functionality of the program without delving into technical specifics. For a detailed examination of the internal mechanisms of each feature, please refer to the "Code Implementation Plan" section.
 
@@ -102,14 +113,17 @@ This section provides a high-level overview of the program's features and their 
 
 ### <strong style="color:#bc5090"> Main program </strong>
 
-This is the main program. It displays a main menu that asks the user to choose an option from:
+Upon running the program, you will be greeted with the main menu. The main menu asks the user to choose from 6 Options.
 
-- Option 1: Upload car database.
-- Option 2: Search car database.
-- Option 3: Append to car database.
-- Option 4: Estimate used car price.
-- Option 5: Find cars within budget.
-- Option 6: Exit the application.
+```bash
+Welcome to the Car Dealership Management System
+1. Upload to car database
+2. Search car database
+3. Append to car database
+4. Estimate used car price
+5. Find cars by budget
+6. Exit
+```
 
 From each option, individual functions are run and the output in returned.
 
@@ -208,6 +222,55 @@ graph TD
 
 ```
 
+### **Steps:**
+
+1. **Select Option 1 from the Main Menu:**
+   ```bash
+   Choose an option: 1
+   ```
+2. **Input File Path:**
+   - The program will prompt you to enter the file path for the CSV file.
+   ```bash
+   Enter file path: /path/to/your/file.csv
+   ```
+
+**CSV File Format:**
+
+- The CSV file must have the following headers: `Make`, `Model`, `Year`, `Price`.
+- Example:
+
+  ```csv
+  Make,Model,Year,Price
+  Toyota,Corolla,2020,20000
+  Honda,Civic,2019,18000
+  ```
+
+  I have created a sample file called car_data.csv. It is recommended to use this csv file as it has already been populated with relevant data. The path for it is:
+
+  ```bash
+  Enter file path: ../data/car_data.csv
+  ```
+
+**Outputs:**
+
+- **Success:** If the file has been accepted by the program.
+  ```bash
+  File uploaded successfully.
+  ```
+- **Failure:** If the file has been rejected by the program. There are 2 possible reasons:
+
+  - If the file is not found:
+
+  ```bash
+  Error: File not found. Please check the file path.
+  ```
+
+  - If headers are missing:
+
+  ```bash
+  Error: CSV file is missing one or more required headers.
+  ```
+
 ### <strong style="color:#bc5090"> Feature 2: Search through car database to find price of car when it was new. </strong>
 
 From the Main menu, Option 2: Search car database. <br><br>
@@ -238,6 +301,42 @@ graph TD
   H --> A
 
 ```
+
+### **Steps:**
+
+1. **Select Option 2 from the Main Menu:**
+   ```bash
+   Choose an option: 2
+   ```
+2. **Check File Upload:**
+   - Program checks if a file is uploaded using option 1 before searching. There is nothing to search if the database is empty. If nothing has been uploaded, we get the error below:
+   ```bash
+   Please upload a file first using option 1.
+   ```
+3. **Input Car Details:**
+   - If Option 1 has already been run. Program asks user to Enter Make, Model, and Year.
+   ```bash
+   Enter Make: Toyota
+   Enter Model: Corolla
+   Enter Year: 2020
+   ```
+
+**Outputs:**
+
+- **Success:**
+  - If a car matching the criteria is found, we get a message like the one below:
+  ```bash
+  The price of 2020 Toyota Corolla is 20000
+  ```
+- **Failure:**
+  - If a no car matching the criteria is found, we get a a error message like the one below:
+  ```bash
+  Car not found in the database.
+  ```
+  - Failure could also be because inputs are invalid:
+  ```bash
+  Make should contain only alphabetic characters.
+  ```
 
 ### <strong style="color:#bc5090"> Feature 3: Append Car Database. </strong>
 
@@ -278,6 +377,48 @@ graph TD
 
 ```
 
+### **Steps:**
+
+1. **Select Option 3 from the Main Menu:**
+   ```bash
+   Choose an option: 3
+   ```
+2. **Check File Upload:**
+   - Program checks if a file is uploaded using option 1 before searching. There is nothing to append to if the database is empty. If nothing has been uploaded, we get the error below:
+   ```bash
+   Please upload a file first using option 1.
+   ```
+3. **Input Car Details:**
+   - If Option 1 has already been run. Program asks user to Enter Make, Model, Year, and Price.
+   ```bash
+   Enter Make: Toyota
+   Enter Model: Corolla
+   Enter Year: 2020
+   Enter Price: 22000
+   ```
+4. **Append to CSV File:**
+   - The program then asks if you want to also append the new entry to the CSV file.
+   ```bash
+   Would you like to also append this to the CSV file? (yes/no): yes
+   ```
+
+**Outputs:**
+
+- **Success:**
+  - If the car is appended successfully, we get the message:
+  ```bash
+  2020 Toyota Corolla was added successfully.
+  ```
+  - If appended to CSV also, we get another message:
+  ```bash
+  2020 Toyota Corolla was added to the CSV file successfully.
+  ```
+- **Failure:**
+  - If inputs are invalid: eg: wrong year and price variable type.
+  ```bash
+  Year must be an integer and Price must be a number.
+  ```
+
 ### <strong style="color:#bc5090"> Feature 4: Estimate car price today based on depreciation and mileage. </strong>
 
 From the Main menu, Option 4: Estimate used car price. <br><br>
@@ -306,6 +447,43 @@ graph TD
   F --> G
   G --> A
 ```
+
+### **Steps:**
+
+1. **Select Option 4 from the Main Menu:**
+   ```bash
+   Choose an option: 4
+   ```
+2. **Check File Upload:**
+   - Program checks if a file is uploaded using option 1 before searching. We cannot estimate price if the reference database is empty. If nothing has been uploaded, we get the error below:
+   ```bash
+   Please upload a file first using option 1.
+   ```
+3. **Input Car Details:**
+   - If Option 1 has already been run. Program asks user to Enter Make, Model, Year, and Mileage.
+   ```bash
+   Enter Make: Toyota
+   Enter Model: Corolla
+   Enter Year: 2020
+   Enter Mileage: 15000
+   ```
+
+**Outputs:**
+
+- **Success:**
+  - The estimated price is calculated and returned.
+  ```bash
+  The value of a 2020 Toyota Corolla is 18000
+  ```
+- **Failure:**
+  - If the car is not found:
+  ```bash
+  Car not found in the database.
+  ```
+  - If inputs are invalid: eg: wrong year and mileage variable type.
+  ```bash
+  Year must be an integer and Mileage must be a number.
+  ```
 
 ### <strong style="color: #bc5090"> Feature 5: Find all cars in database that meet budget and Make requirements. </strong>
 
@@ -336,6 +514,52 @@ graph TD
   G --> A
 
 ```
+
+**Steps:**
+
+1. **Select Option 5 from the Main Menu:**
+   ```bash
+   Choose an option: 5
+   ```
+2. **Check File Upload:**
+   - Program checks if a file is uploaded using option 1 before searching. We cannot find vehicles if the reference database is empty. If nothing has been uploaded, we get the error below:
+   ```bash
+   Please upload a file first using option 1.
+   ```
+3. **Input Budget and Make:**
+   - Program asks user to Enter Maximum Budget and optionally Make. If you want to leave Make empty, simply hit Enter.
+   ```bash
+   Enter Maximum Budget: 20000
+   Enter Make (optional): Toyota
+   ```
+
+**Outputs:**
+
+- **Success:**
+  - If cars are found, a list of cars are returned.
+  ```bash
+  Make: Toyota, Model: Corolla, Year: 2000, Price: 15000.0
+  Make: Toyota, Model: Corolla, Year: 2001, Price: 15500.0
+  Make: Toyota, Model: Corolla, Year: 2002, Price: 16000.0
+  Make: Toyota, Model: Corolla, Year: 2003, Price: 16500.0
+  Make: Toyota, Model: Corolla, Year: 2004, Price: 17000.0
+  Make: Toyota, Model: Corolla, Year: 2005, Price: 17500.0
+  Make: Toyota, Model: Corolla, Year: 2006, Price: 18000.0
+  Make: Toyota, Model: Corolla, Year: 2007, Price: 18500.0
+  Make: Toyota, Model: Corolla, Year: 2008, Price: 19000.0
+  Make: Toyota, Model: Corolla, Year: 2009, Price: 19500.0
+  Make: Toyota, Model: Corolla, Year: 2010, Price: 20000.0
+  Make: Toyota, Model: Ceres, Year: 1999, Price: 5000.0
+  ```
+- **Failure:**
+  - If no cars are found:
+  ```bash
+  No cars found within the budget of 20000 for the make 'Toyota'.
+  ```
+  - If inputs are invalid:
+  ```bash
+  Make should contain only alphabetic characters.
+  ```
 
 # <strong style="color:salmon"> Project Management </strong>
 
