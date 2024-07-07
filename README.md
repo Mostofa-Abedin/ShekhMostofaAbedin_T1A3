@@ -4,7 +4,7 @@ This project serves as part of the fulfillment of T1A2: Portfolio towards a Dipl
 
 ### Important Links
 
-Link to git repository: https://github.com/Mostofa-Abedin/-ShekhMostofaAbedin-_T1A2.git
+Link to Git repository: https://github.com/Mostofa-Abedin/-ShekhMostofaAbedin-_T1A2.git
 
 ### Built with
 
@@ -19,9 +19,80 @@ Code for this project was written adhering to PEP8 guidelines as it it is the mo
 
 ### Car Dealership Management System
 
+Welcome to the Car Dealership management system! This application allows users to manage a car database. Users are able to upload car data, search for cars, add new cars, estimate used car prices and find cars within a specific budget.
+
 # <strong style="color:salmon"> Requirements </strong>
 
+### Hardware Requirements
+
+- Operating System: Windows, macOS, or Linux
+- Processor: 1 GHz or faster processor
+- Memory: 2 GB RAM
+- Storage: 1 GB of available space
+
+### Software Requirements
+
+Before running the program, ensure your system meets the following requirements:
+
+- Python 3 installed
+- pip (Python package installer) installed
+- Virtualenv module installed
+
 # <strong style="color:salmon"> Step-by-Step Installation Instructions </strong>
+
+### 1. Use Local Copy or Clone Git Repository
+
+- Option 1: Use Local Copy <br>
+  If you are reading this README file, you have likely unzipped a file named ShekhMostofaAbedin_T1A3. This unzipped folder contains all the necessary files to run the program.
+
+- Option 2: Clone the Repository <br>
+  Alternatively, you can clone the repository from GitHub using the following link: ShekhMostofaAbedin_T1A3 Repository. To do this, first note the path to the local directory where you would like to clone the repository. Then, open your terminal and execute the following commands, replacing path/to/your/local/directory with your chosen directory location.
+
+```bash
+cd path/to/your/local/directory
+git clone https://github.com/Mostofa-Abedin/ShekhMostofaAbedin_T1A3.git
+cd path/to/your/local/directory/ShekhMostofaAbedin_T1A3
+```
+
+### 2. Navigate to the Project Directory:
+
+- If you have cloned the Git Repository: You are already in the right folder and do not need to do anything further.
+
+- If you are using a local copy: Open the terminal and navigate to the root folder where you have unzipped the file. Use the following command, replacing path/to/your/local/directory with your directory location:
+
+```bash
+cd path/to/your/local/directory/ShekhMostofaAbedin_T1A3
+```
+
+### 3. Verify Your Directory
+
+If you are in the correct folder, your terminal prompt should look like this:
+
+```bash
+user@machine:~/path/to/your/local/directory/ShekhMostofaAbedin_T1A3$
+```
+
+### 4. Make Shell Scripts Executable
+
+To ensure the shell scripts have the necessary executable permissions, run the following commands in your terminal. Do not modify the script; simply execute it as provided. If everything is set up correctly, you will not see any output. If there are any issues, error messages will be displayed.
+
+```bash
+chmod +x check_python.sh
+chmod +x check_pip.sh
+chmod +x check_virtualenv.sh
+chmod +x setup_virtualenv.sh
+chmod +x install_packages.sh
+chmod +x deactivate_virtualenv.sh
+chmod +x run.sh
+```
+
+### 5. Run the Program
+
+Finally, execute the run.sh script to set up and run the application using the command.
+
+```bash
+./run.sh
+```
 
 # <strong style="color:salmon"> How to use Program. </strong>
 
