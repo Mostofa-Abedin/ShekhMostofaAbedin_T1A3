@@ -15,15 +15,19 @@ Link to git repository: https://github.com/Mostofa-Abedin/-ShekhMostofaAbedin-_T
 
 Code for this project was written adhering to PEP8 guidelines as it it is the most universally used convention. Reference to the PEP8 guidelines: https://peps.python.org/pep-0008/
 
-## Purpose
+# <strong style="color:salmon"> Introduction </strong>
 
-The aim of this project is to g.
+### Car Dealership Management System
 
-# <strong style="color:salmon"> Features of Program </strong>
+# <strong style="color:salmon"> Requirements </strong>
+
+# <strong style="color:salmon"> Step-by-Step Installation Instructions </strong>
+
+# <strong style="color:salmon"> How to use Program. </strong>
 
 This section provides a high-level overview of the program's features and their underlying logic. It is designed for non-technical users to understand the capabilities and functionality of the program without delving into technical specifics. For a detailed examination of the internal mechanisms of each feature, please refer to the "Code Implementation Plan" section.
 
-## List of Features and their Logic
+## List of Features
 
 ### <strong style="color:#bc5090"> Main program </strong>
 
@@ -614,7 +618,7 @@ graph TD
    a. Set depreciation rate to 5% per year.
    b. Set mileage adjustment factor to 0.01 per mile.
 9. Calculate age of car using datetime module
-10. Calculate current price of car based on formula price = base_price - (depreciation_rate _ years_old _ base_price) + (mileage_adjustment_factor \* mileage)
+10. Calculate current price of car based on formula price = base*price - (depreciation_rate * years*old * base_price) + (mileage_adjustment_factor \* mileage)
 11. Return calculated price.
 
 #### Pseudocode Logic:
@@ -671,7 +675,7 @@ graph TD
 3.  Check that the inputs provided are valid.
 4.  Create empty list to store cars found.
 5.  Iterate through car_database to find cars that satisfy:
-    -     Price < budget
+    - Price < budget
     - Make matches Make (Optional)
 6.  Car found within those criteria returned to list.
 
