@@ -122,6 +122,7 @@ Before running the program, ensure your system meets the following requirements:
 - Python 3 installed
 - pip (Python package installer) installed
 - Virtualenv module installed
+- WSL installed (for Windows users)
 
 # <strong style="color:salmon"> Step-by-Step Installation Instructions </strong>
 
@@ -161,6 +162,8 @@ user@machine:~/path/to/your/local/directory/ShekhMostofaAbedin_T1A3$
 
 To ensure the shell scripts have the necessary executable permissions, run the following commands in your terminal. Do not modify the script; simply execute it as provided. If everything is set up correctly, you will not see any output. If there are any issues, error messages will be displayed.
 
+**For Unix-based Systems (Linux, macOS, WSL):**
+
 ```bash
 chmod +x check_python.sh
 chmod +x check_pip.sh
@@ -174,6 +177,8 @@ chmod +x run.sh
 ### 5. Run the Program
 
 Finally, execute the run.sh script to set up and run the application using the command.
+
+**For Unix-based Systems (Linux, macOS, WSL):**
 
 ```bash
 ./run.sh
@@ -1315,9 +1320,9 @@ A detailed breakdown of the tickets can be found in the table below.
 
 ### Sprint progression
 
-#### <strong style="color:#bc5090"> Day 1 </strong>
+This section shows my progress throughout the sprint. Screenshots of the sprint board at the end of each day have been provided. Please note that because this was one long sprint with a huge scope, sometimes tickets may not have been moved on time. I have also provided a burn-up chart that shows my progress. A burn-up chart is used to track work completed versus the total amount of work planned for the sprint. It helps visualize progress and predict when all the work will be completed.
 
-##### Day Brief:
+#### <strong style="color:#bc5090"> Day 1 </strong>
 
 ##### Sprint Board at End of Day:
 
@@ -1325,15 +1330,11 @@ A detailed breakdown of the tickets can be found in the table below.
 
 #### <strong style="color:#bc5090"> Day 2 </strong>
 
-##### Day Brief:
-
 ##### Sprint Board at End of Day:
 
 ![DAY 2 Sprint Board](/docs/Day_2.png)
 
 #### <strong style="color:#bc5090"> Day 3 </strong>
-
-##### Day Brief:
 
 ##### Sprint Board at End of Day:
 
@@ -1341,15 +1342,11 @@ A detailed breakdown of the tickets can be found in the table below.
 
 #### <strong style="color:#bc5090"> Day 4 </strong>
 
-##### Day Brief:
-
 ##### Sprint Board at End of Day:
 
 ![DAY 4 Sprint Board](/docs/Day_4.png)
 
 #### <strong style="color:#bc5090"> Day 5 </strong>
-
-##### Day Brief:
 
 ##### Sprint Board at End of Day:
 
@@ -1357,15 +1354,11 @@ A detailed breakdown of the tickets can be found in the table below.
 
 #### <strong style="color:#bc5090"> Day 6 </strong>
 
-##### Day Brief:
-
 ##### Sprint Board at End of Day:
 
 ![DAY 6 Sprint Board](/docs/Day_6.png)
 
 #### <strong style="color:#bc5090"> Day 7 </strong>
-
-##### Day Brief:
 
 ##### Sprint Board at End of Day:
 
